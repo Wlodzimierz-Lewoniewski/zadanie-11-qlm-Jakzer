@@ -6,8 +6,8 @@ n_doc=input()
 for i in range(int(n_doc)):
     docs.append(input())
 query = input()
-ranking = input()
-ranking=[int(x) for x in ranking if x !=" "]
+# ranking = input()
+# ranking=[int(x) for x in ranking if x !=" "]
 
 def preprocess_doc(text):
     text = "".join(re.findall(r"[\w\s]",text))
@@ -44,7 +44,7 @@ for i, doc_tokens in enumerate(docs):
     scores.append((i, score))
 
 # Sortowanie wyników na podstawie rankingu i wartości prawdopodobieństwa
-sorted_scores = sorted(scores, key=lambda x: (-x[1], ranking.index(x[0])))
+sorted_scores = sorted(scores, key=lambda x: (-x[1]))
 
 # Wyświetlenie wyników
 wynik = []
